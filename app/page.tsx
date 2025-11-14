@@ -428,14 +428,22 @@ Each project I build is focused on innovation, scalability, and positive impact 
       {/* Footer */}
       <footer className="bg-black/60 text-white py-6 px-8 mt-12 flex items-center justify-between">
         <div className="flex items-center space-x-10">
-          <Linkedin className="w-6 h-6 text-gray-300 hover:text-white hover:scale-110 transition-transform cursor-pointer" />
+         <Linkedin
+           className="w-6 h-6 text-gray-300 hover:text-white hover:scale-110 transition-transform cursor-pointer"
+           onClick={() =>
+             window.open("https://www.linkedin.com/in/hatem-hamdy-444517396", "_blank")
+           }
+          />
+
           <Mail 
             className="w-6 h-6 text-gray-300 hover:text-white hover:scale-110 transition-transform cursor-pointer"
             onClick={() => window.location.href = "mailto:connect.hatem.hamdy@gmail.com"}
           />
           <Instagram 
             className="w-6 h-6 text-gray-300 hover:text-white hover:scale-110 transition-transform cursor-pointer"
-            onClick={() => window.open("https://www.instagram.com/h_atem_002?igsh=MWZjampiYWl3eHZrNA==", "_blank")}
+            onClick={() =>
+              window.open("https://www.instagram.com/h_atem_002?igsh=MWZjampiYWl3eHZrNA==", "_blank")
+            }
           />
         </div>
 
