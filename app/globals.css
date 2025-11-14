@@ -1,26 +1,256 @@
-@import "tailwindcss";
+/* ===========================
+   GLOBAL STYLES (globals.css)
+   =========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #010517;
+  --foreground: #e5e7eb;
+  --accent: #00c6ff;
+  --secondary: #0052ff;
+  --radius: 12px;
+  --transition: 0.3s ease;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* --------------------------
+   Base Styles
+--------------------------- */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', 'Space Grotesk', ui-sans-serif, system-ui;
+  line-height: 1.6;
+  background: radial-gradient(circle at 20% 20%, #040b24, #010517 80%);
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
+
+/* ===========================
+   PROFESSIONAL VERTICAL WAVE
+=========================== */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background: 
+    radial-gradient(ellipse 40% 120% at 85% 50%, rgba(0, 120, 255, 0.5), transparent 70%),
+    radial-gradient(ellipse 30% 110% at 88% 45%, rgba(0, 160, 255, 0.35), transparent 75%),
+    radial-gradient(ellipse 50% 130% at 82% 55%, rgba(0, 90, 255, 0.25), transparent 80%),
+    linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+  filter: blur(40px);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Subtle star texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(#ffffff08 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.04;
+  z-index: -1;
+}
+
+/* --------------------------
+   Headings
+--------------------------- */
+h1, h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3.5rem;
+  color: #fff;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+/* --------------------------
+   Sections
+--------------------------- */
+section {
+  min-height: 80vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+/* Text Block (clean, no bubble) */
+.text-card {
+  flex: 1;
+  border-left: 3px solid var(--accent);
+  padding: 2rem;
+}
+
+/* Image Side */
+.image-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image-side img {
+  max-width: 480px;
+  border-radius: 20px;
+  transform: translateY(0);
+  transition: transform 0.4s ease;
+  box-shadow: none;
+}
+
+.image-side img:hover {
+  transform: translateY(-10px);
+}
+
+/* Hero Section */
+#hero {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  position: relative;
+  padding: 8rem 2rem;
+}
+
+#hero h1 {
+  font-size: 4rem;
+  max-width: 800px;
+
+  /* ultra-tight */
+  margin-bottom: -0.3rem;
+}
+
+#hero p {
+  color: #d1d5db;
+  font-size: 1.25rem;
+  max-width: 600px;
+
+  /* ultra-tight above */
+  margin-top: -0.1rem;
+
+  /* NEW ultra-tight below (subtitle to button) */
+  margin-bottom: -0.4rem;
+}
+
+/* --------------------------
+   Footer
+--------------------------- */
+footer {
+  background: rgba(1, 5, 23, 0.9);
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid #1f2937;
+  color: #9ca3af;
+}
+
+/* === NEW: SPACING BETWEEN SOCIAL ICONS === */
+footer svg {
+  margin-right: 18px;
+}
+
+footer svg:last-child {
+  margin-right: 0;
+}
+
+/* --------------------------
+   Responsive
+--------------------------- */
+@media (max-width: 768px) {
+  section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-card {
+    border: none;
+    border-top: 3px solid var(--accent);
+  }
+
+  .image-side img {
+    max-width: 90%;
+  }
+}
+/* === HOLO GLASS ENVIRONMENT === */
+
+:root {
+  --holo-cyan: #00faff;
+  --holo-violet: #a855f7;
+}
+
+/* Glass card base */
+.holo-card {
+  backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-image: linear-gradient(90deg, var(--holo-cyan), var(--holo-violet)) 1;
+  box-shadow:
+    0 0 25px rgba(0, 245, 255, 0.15),
+    0 0 45px rgba(168, 85, 247, 0.1);
+  transition: all 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+.holo-card:hover {
+  transform: rotateY(6deg) scale(1.05);
+  box-shadow:
+    0 0 40px rgba(0, 245, 255, 0.4),
+    0 0 60px rgba(168, 85, 247, 0.3);
+  border-image: linear-gradient(90deg, var(--holo-cyan), var(--holo-violet), var(--holo-cyan)) 1;
+}
+
+/* Glowing text effect */
+.holo-text {
+  text-shadow:
+    0 0 8px rgba(0, 255, 255, 0.4),
+    0 0 16px rgba(168, 85, 247, 0.3);
+}
+
+/* Optional slow background motion for holo light */
+@keyframes holo-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.holo-bg {
+  background: linear-gradient(120deg, #00faff20, #a855f720, #00faff20);
+  background-size: 200% 200%;
+  animation: holo-bg 8s ease infinite;
+}
+
+
+/* ==========================================
+   SOCIAL ICON SPACING (EXISTING BLOCK)
+========================================== */
+footer .social-icons a {
+  margin-right: 14px;
+  display: inline-flex;
+  align-items: center;
+}
+
+footer .social-icons a:last-child {
+  margin-right: 0;
+}   
