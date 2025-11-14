@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-// Load local fonts
+// Load local fonts from app/fonts/
 const geistSans = localFont({
-  src: "../public/fonts/Geist.woff2",
+  src: "./fonts/Geist.woff2",
   variable: "--font-geist-sans",
 });
 
 const geistMono = localFont({
-  src: "../public/fonts/GeistMono.woff2",
+  src: "./fonts/GeistMono.woff2",
   variable: "--font-geist-mono",
 });
 
