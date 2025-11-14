@@ -4,16 +4,16 @@ import "./globals.css";
 
 // App Metadata
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "Portfolio — Created with Next.js",
+  title: "Hatem Hamdy Portfolio",
+  description: "Portfolio — AI and technology projects by Hatem Hamdy",
   icons: {
     icon: "/favicon.ico",
   },
 };
 
-// Viewport & theme color (optional)
+// Optional viewport & theme
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: "#000000",
 };
 
 export default function RootLayout({
@@ -23,8 +23,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/* Tailwind utility classes: change bg/text to your preferred palette */}
-      <body className="bg-white text-black antialiased font-sans">
+      {/* Body classes match your page.tsx style */}
+      <body className="bg-black text-white antialiased font-sans">
         {children}
       </body>
     </html>
